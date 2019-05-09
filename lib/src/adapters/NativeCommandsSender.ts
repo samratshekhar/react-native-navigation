@@ -15,6 +15,7 @@ interface NativeCommandsModule {
   showOverlay(commandId: string, layout: object): Promise<any>;
   dismissOverlay(commandId: string, componentId: string): Promise<any>;
   getLaunchArgs(commandId: string): Promise<any>;
+  isScreenAvailable(componentId: string): Promise<any>;
 }
 
 export class NativeCommandsSender {
@@ -77,5 +78,9 @@ export class NativeCommandsSender {
 
   getLaunchArgs(commandId: string) {
     return this.nativeCommandsModule.getLaunchArgs(commandId);
+  }
+
+  isScreenAvailable(componentId: string) {
+    return this.nativeCommandsModule.isScreenAvailable(componentId);
   }
 }

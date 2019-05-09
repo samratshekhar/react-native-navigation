@@ -152,4 +152,8 @@ export class Commands {
     this.commandsObserver.notify('getLaunchArgs', { commandId });
     return result;
   }
+
+  public isScreenAvailable(componentId: string) {
+    return this.nativeCommandsSender.isScreenAvailable(componentId);
+  }
 }

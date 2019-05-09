@@ -184,6 +184,13 @@ export class NavigationRoot {
   }
 
   /**
+   * retrurns boolean result of whether screenId already in stack
+   */
+  public isScreenAvailable(componentId: string): Promise<any> {
+    return this.commands.isScreenAvailable(componentId);
+  }
+
+  /**
    * Resolves arguments passed on launch
    */
   public getLaunchArgs(): Promise<any> {
