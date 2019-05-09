@@ -153,6 +153,19 @@ public class NavigationModule extends ReactContextBaseJavaModule {
 		handle(() -> navigator().dismissOverlay(componentId, new NativeCommandListener(commandId, promise, eventEmitter, now)));
 	}
 
+	@ReactMethod
+	public void isScreenAvailable(String id, Promise promise) {
+    	try {
+			if(navigator().findController(id) == null) {
+				promise.resolve(false);
+			} else {
+				promise.resolve(true);
+			}
+		} catch (Exception e) {
+			promise.reject(e);
+		}
+	}
+
 	private Navigator navigator() {
 		return activity().getNavigator();
 	}
